@@ -1,9 +1,3 @@
 flask
-tensorflow-cpu
-pillow
+tensorflow
 numpy
-jinja2
-gunicorn
-itsdangerous
-MarkupSafe
-Werkzeug
