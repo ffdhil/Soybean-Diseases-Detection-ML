@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Soybean Diseases Detection</title>
+    <style>
+        body {
+            background-color: #0eba48;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .card-container {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background-color: white;
+            flex: 1;
+            max-width: 42rem;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            margin: 8px;
+        }
+
+        #frame {
+            max-width: 24rem;
+        }
+
+        .cr {
+            color: white;
+        }
+
+        .alert{
+            text-align: left;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="isi-container">
+        <div class="container card-container text-center">
+            <div class="card">
+                <div class="card-header mb-3 pt-3 pb-3">
+                    <h2>Deteksi Penyakit Tanaman Kedelai</h2>
+                    <h4>Machine Learning</h4>
+                </div>
+                <div class="card-body" style="margin-left: 10px; margin-right: 20px;">
+                    <h5><b>Penjelasan Proses Deteksi Menggunakan CNN di Website</b></h5>
+                    <div style="text-align: justify;" class="details">
+                        <h6>
+                            Website ini menggunakan Machine Learning yaitu CNN sebagai sistem utama untuk mendeteksi penyakit tanaman kedelai.
+                            Dataset yang digunakan pada pembuatan sistem ini diambil dari situs datadryad.org dengan judul “<i>Pictures of diseased soybean leaves by category captured in fields and with controlled backgrounds: Auburn Soybean Disease Image Dataset</i> (ASDID)” oleh Bevers, dkk (2022).
+                            Jadi website ini menggunakan model CNN yang sudah dilatih sebelumnya sebagai sistem deteksi yang dapat mengenali jenis penyakit tanaman kedelai berdasarkan citra daun.
+                            Untuk mengetahui lebih lanjut terkait kode sistem pada website ini, Anda dapat melihatnya di (https://github.com/ffdhil/Soybean-Diseases-Detection-ML).<br/>
+                            <br>
+                            Berikut adalah proses yang terjadi ketika sistem di website ini melakukan deteksi penyakit tanaman kedelai:<br/>
+                            <ol>
+                                <li>Pengguna mengunggah gambar daun kedelai yang akan dideteksi pada tempat yang sudah disediakan di halaman deteksi kemudian menekan tombol "Deteksi".</li>
+                                <li>Sistem akan mengubah ukuran gambar menjadi ukuran 256x256 piksel karena model CNN yang telah dilatih menggunakan gambar dengan ukuran tersebut.</li>
+                                <li>Setelah berhasil mengubah ukuran, sistem akan mengubah setiap piksel gambar menjadi array dengan function <b>img_to_array</b> sehingga hasilnya akan menjadi array numpy dengan bentuk <b>(256,256,3)</b>.</li>
+                                <li>Setelah berhasil mengubah gambar menjadi array, array tersebut akan di expand dimensinya menggunakan function <b>np.expand_dims</b> agar sesuai dengan format input model CNN sehingga hasilnya menjadi <b>(1,256,256,3)</b>.</li>
+                                <li>Setelah berhasil, selanjutnya akan diproses pada model CNN yang telah dibuat sebelumnya.</li>
+                            </ol>
+                        </h6>
+                    </div>
+                    <div>
+                        <button id="clearbtn" class="btn btn-danger" onclick="javascript:history.back(1)">Kembali</button>
+                    </div>
+</body>
+</html>

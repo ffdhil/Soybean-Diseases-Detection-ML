@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Soybean Diseases Detection</title>
+    
+    <style>
+        body {
+            background-color: #0eba48;
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="isi-container">
+        <div class="container card-container text-center">
+            <div class="card">
+                <div class="card-header mb-6 pt-3 pb-3">
+                    <h2>Deteksi Penyakit Tanaman Kedelai</h2>
+                    <h4>Machine Learning</h4>
+                </div>
+
+   <br>
+   <br>
+
+
+    <div class="container my-2">
+        <div class="row mb-5">
+
+            <div class="col-sm" style="margin-bottom: 23px;">
+                <span class="border border-primary">
+                    <img src="{{url_for('static',filename = 'potassium_deficiency.jpg' )}}" alt="Image" style="width:300px;height:300px;">
+                    
+
+                </span>
+            </div>
+
+            <div class="col-sm">
+
+                <div>
+                    <h1 style="padding: 10px; background-color: rgb(15, 15, 15); color: white; margin-right: 40px;"
+                        class="text-center mb-5 content-h1 rounded">
+                        {{result}} </h1>
+                </div>
+                <div style="font-size: 20px">
+                    <b>Tingkat Kepercayaan : {{confidence}}</b>
+                </div>
+                <div style="text-align: justify; margin-right: 30px;" class="details">
+					
+					<h4><b> Deskripsi: </b> </h4>
+                    <h6>
+
+                        <p>Potassium Deficiency atau defisiensi kalium terjadi karena tanaman tidak dapat mengekstraksi kalium (K) dari permukaan tanah. Secara umum terjadi karena uji kalium tanah (soil-test K) lebih rendah dari optimum untuk pertumbuhan vegetatif. Gejala yang dapat terjadi adalah menguningnya tepi daun pada daun yang lebih tua yang biasanya dimulai dari ujung daun dan meluas ke bawah tepi menuju pangkal daun. Pada defisiensi yang parah tepi daun dapat berwarna coklat (jaringan mati) dan tanaman yang terkena tampak kerdil meskipun daun baru mungkin normal.</p>
+                        <p>Karena biasanya gejala ini muncul saat mendekati masa panen, tidak ada pengobatan yang efektif secara ekonomi. Hal yang dapat dilakukan adalah mengantisipasi dengan melakukan observasi pada akar tanaman, kondisi fisik tanah, dan sampel tanah dan pengujian untuk kalium pada area yang berdekatan dengan atau tanpa gejala sehingga dapat memberikan petunjuk tentang penyebab defisiensi dan tindakan yang mungkin dilakukan untuk penanaman berikutnya.</p>
+                        <p><b>Sumber:</b> Antonio Mallarino, Iowa State University, <i>Encyclopedia Article : Potassium deficiency symptoms in corn and soybean: What can we do about them?</i> Diakses pada 10 Maret 2023, dari https://crops.extension.iastate.edu/encyclopedia/potassium-deficiency-symptoms-corn-and-soybean-what-can-we-do-about-them </p>
+                        
+
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-info" role="alert" style="margin-left: 150px; margin-right: 150px; text-align: justify;">
+            Berikut adalah proses yang terjadi berdasarkan input yang Anda berikan: <br>
+            <ol>
+                <li>Proses input berhasil dan data gambar telah diterima</li>
+                <li>Ukuran Citra Awal : {% if height and width %} {{height}} x {{width}} piksel {% endif %}</li>
+                <li>Convert to 256 x 256 piksel : {% if convert %} Selesai {% else %} Unprocessed {% endif %}</li>
+                <li>Proses Deteksi : {% if detection and convert%} Selesai {% else %} Unprocessed {% endif %}</li>
+                <li>Waktu Deteksi : {% if detection %} {{time_process}} detik {% else %} - {% endif %}</li>
+                <li>Berhasil Menampilkan Hasil Deteksi</li>
+            </ol>
+        </div>
+                <div>
+                    <button id="clearbtn" class="btn btn-danger" onclick="javascript:history.back(1)">Kembali</button>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div style="text-align: center;">
+        <p><b>&copy; 2023 Universitas Negeri Malang. All rights reserved.</b></p>
+    </footer>
+</body>
+
+</html>

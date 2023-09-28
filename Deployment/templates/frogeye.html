@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Soybean Diseases Detection</title>
+    
+    <style>
+        body {
+            background-color: #0eba48;
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="isi-container">
+        <div class="container card-container text-center">
+            <div class="card">
+                <div class="card-header mb-6 pt-3 pb-3">
+                    <h2>Deteksi Penyakit Tanaman Kedelai</h2>
+                    <h4>Machine Learning</h4>
+                </div>
+
+   <br>
+   <br>
+
+
+    <div class="container my-2">
+        <div class="row mb-5">
+
+            <div class="col-sm" style="margin-bottom: 23px;">
+                <span class="border border-primary">
+                    <img src="{{url_for('static',filename = 'frogeye.jpg' )}}" alt="Image" style="width:300px;height:300px;">
+                    
+
+                </span>
+            </div>
+
+            <div class="col-sm">
+
+                <div>
+                    <h1 style="padding: 10px; background-color: rgb(15, 15, 15); color: white; margin-right: 40px;"
+                        class="text-center mb-5 content-h1 rounded">
+                        {{result}} </h1>
+                </div>
+                <div style="font-size: 20px">
+                    <b>Tingkat Kepercayaan : {{confidence}}</b>
+                </div>
+                <div style="text-align: justify; margin-right: 30px;" class="details">
+					
+					<h4><b> Deskripsi: </b> </h4>
+                    <h6>
+
+                        <p>Frogeye Leaf Spot yang disebabkan oleh Cercospora sojina ini menginfeksi pada semua stadia umur tanaman kedelai. Gejala awal pada daun berupa bercak kecil berwarna kuning yang akan berkembang menjadi abu-abu terang. Serangan yang parah menyebabkan daun berlubang atau sobek dan gugur sebelum waktunya. Patogen juga dapat menginfeksi batang, polong, dan biji, dengan gejala awal berupa noda berwarna gelap dan tampak kebasahan.</p>
+<p>Upaya pengendalian penyakit Frogeye Leaf Spot dapat dilakukan dengan membersihkan lahan, rotasi tanaman dengan tanaman lain yang bukan inang, dan menggunakan benih sehat/bebas pathogen. Upaya pengendalian secara kimia dapat dilakukan dengan pemberian fungisida berbahan aktif mancozeb.</p>
+<p><b>Sumber:</b> Tasyrika Millenia, H., Febrianty, A., Dinyati Lussy, A., Nurhasanah, I., & Yunitasari, N. (2021). Prosiding SEMNAS BIO 2021 Jenis-Jenis Penyakit Pada Tanaman Kedelai (Glycine max) Serta Pengendaliannya Secara Fisik dan Kimia.</p>
+                        
+
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-info" role="alert" style="margin-left: 150px; margin-right: 150px; text-align: justify;">
+            Berikut adalah proses yang terjadi berdasarkan input yang Anda berikan: <br>
+            <ol>
+                <li>Proses input berhasil dan data gambar telah diterima</li>
+                <li>Ukuran Citra Awal : {% if height and width %} {{height}} x {{width}} piksel {% endif %}</li>
+                <li>Convert to 256 x 256 piksel : {% if convert %} Selesai {% else %} Unprocessed {% endif %}</li>
+                <li>Proses Deteksi : {% if detection and convert%} Selesai {% else %} Unprocessed {% endif %}</li>
+                <li>Waktu Deteksi : {% if detection %} {{time_process}} detik {% else %} - {% endif %}</li>
+                <li>Berhasil Menampilkan Hasil Deteksi</li>
+            </ol>
+        </div>
+                <div>
+                    <button id="clearbtn" class="btn btn-danger" onclick="javascript:history.back(1)">Kembali</button>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div style="text-align: center;">
+        <p><b>&copy; 2023 Universitas Negeri Malang. All rights reserved.</b></p>
+    </footer>
+</body>
+
+</html>
